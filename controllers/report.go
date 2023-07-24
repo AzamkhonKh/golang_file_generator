@@ -23,6 +23,13 @@ func New() *UserRepo {
 }
 
 // get visits
+func (repository *UserRepo) SayHello(c *gin.Context) {
+	c.JSON(200, gin.H{
+		"message": "Hello World!",
+	})
+}
+
+// get visits
 func (repository *UserRepo) GetVisits(c *gin.Context) {
 	var visits []models.VisitVrach
 	err := models.GetVisitsVrach(repository.Db, &visits)

@@ -17,6 +17,7 @@ func setupRouter() *gin.Engine {
 	r := gin.Default()
 
 	userRepo := controllers.New()
+	r.GET("/", userRepo.SayHello)
 	r.GET("/visits", userRepo.GetVisits)
 	r.GET("/xlsx", userRepo.GenerateExcel)
 
