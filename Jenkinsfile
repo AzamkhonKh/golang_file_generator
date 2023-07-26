@@ -4,12 +4,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'echo "DB_USERNAME=\"' + ${env.DB_USERNAME} 
-          + '\"\nDB_PASSWORD=\"' + ${env.DB_PASSWORD} 
-          + '\"\nDB_NAME=\"' + ${env.DB_NAME} 
-          + '\"\nDB_HOST=\"' + ${env.DB_HOST} 
-          + '\"\nDB_PORT=\"' + ${env.DB_PORT} 
-          + '\"" > app.env'
+        sh "echo \"DB_USERNAME=\"${env.DB_USERNAME}\"\nDB_PASSWORD=\"${env.DB_PASSWORD}\"\nDB_NAME=\"${env.DB_NAME}\"\nDB_HOST=\"${env.DB_HOST}\"\nDB_PORT=\"${env.DB_PORT}\"\" > app.env"
         sh 'docker build -t file_gen .' 
       }
     }
